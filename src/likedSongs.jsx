@@ -4,9 +4,9 @@ export default function SongList() {
   const [likedSongs, setLikedSongs] = useState({});
 
   const toggleLike = (songName) => {
-    setLikedSongs((prevLikedSongs) => ({
-      ...prevLikedSongs,
-      [songName]: !prevLikedSongs[songName],
+    setLikedSongs((prevState) => ({
+      ...prevState,
+      [songName]: !prevState[songName],
     }));
   };
 
