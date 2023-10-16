@@ -12,3 +12,5 @@ Included the information of the artist, songs and a toggling like button
 3) npm run vite 
 
 4) go to local host shown in terminal
+
+5) Images will not work as I have stored them on my local machine
