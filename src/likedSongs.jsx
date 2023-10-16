@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function SongList() {
-  const [likedSongs, setLikedSongs] = useState({});
+  const [likedSongs, setLikedSongs] = useState(false);
 
   const toggleLike = (songName) => {
     setLikedSongs((prevState) => ({
@@ -12,11 +14,23 @@ export default function SongList() {
 
   const isLiked = (songName) => likedSongs[songName];
 
-
   const songs = [
-    { name: 'Galway Girl', releaseDate: '17-03-2017', coverArt: '../images/EdSheeranGG.jpg' },
-    { name: 'Shape of you', releaseDate: '06-01-2017', coverArt: '../images/ShapeOfYou.png' },
-    { name: 'Shivers', releaseDate: '10-09-2021', coverArt: '../images/shivers.png'}];
+    {
+      name: "Galway Girl",
+      releaseDate: "17-03-2017",
+      coverArt: "../images/EdSheeranGG.jpg",
+    },
+    {
+      name: "Shape of you",
+      releaseDate: "06-01-2017",
+      coverArt: "../images/ShapeOfYou.png",
+    },
+    {
+      name: "Shivers",
+      releaseDate: "10-09-2021",
+      coverArt: "../images/shivers.png",
+    },
+  ];
 
   return (
     <>
@@ -28,13 +42,14 @@ export default function SongList() {
             <p>{song.name}</p>
             <p>{song.releaseDate}</p>
             <button onClick={() => toggleLike(song.name)}>
-              {isLiked(song.name) ? 'Unlike' : 'Like'}
+              <FontAwesomeIcon
+                icon={isLiked(song.name) ? faThumbsDown : faThumbsUp}
+                style={{ color: isLiked(song.name) ? "red" : "gray" }}
+              />
             </button>
           </li>
         ))}
       </ul>
     </>
   );
-};
-
-
+}
