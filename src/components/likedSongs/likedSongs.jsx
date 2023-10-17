@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 
-export default function SongList() {
-  const [likedSongs, setLikedSongs] = useState(false);
+export default function likedSongs({likedSongs, setLikedSongs}) {
 
   const toggleLike = (songName) => {
     setLikedSongs((prevState) => ({
@@ -18,17 +17,17 @@ export default function SongList() {
     {
       name: "Galway Girl",
       releaseDate: "17-03-2017",
-      coverArt: "../images/EdSheeranGG.jpg",
+      coverArt: "../Public/EdSheeranGG.jpg",
     },
     {
       name: "Shape of you",
       releaseDate: "06-01-2017",
-      coverArt: "../images/ShapeOfYou.png",
+      coverArt: "../Public/ShapeOfYou.png",
     },
     {
       name: "Shivers",
       releaseDate: "10-09-2021",
-      coverArt: "../images/shivers.png",
+      coverArt: "../Public/shivers.png",
     },
   ];
 

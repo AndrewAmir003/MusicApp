@@ -1,12 +1,26 @@
-import React from "react";
-import ArtistInfo from "./ArtistInfo.jsx"
-import SongList from "./likedSongs.jsx";
+import React, { useState } from "react";
+import { ArtistInfo, LikedSongs, UserAddSongForm, SongList, SongItem  } from "./components/index"
 
 export default function App() {
+  const [inputText, setInputText] = useState("")
+  const [likedSongs, setLikedSongs] = useState([]);
+  const [songName, setSongName] = useState([]);
+
     return (
         <>
           <ArtistInfo />
-          <SongList />
+          <LikedSongs 
+          likedSongs={likedSongs} 
+          setLikedSongs={setLikedSongs}
+          />
+          <UserAddSongForm 
+          inputText={inputText} 
+          setInputText={setInputText} 
+          songName={songName} 
+          setSongName={setSongName}/>
+          <SongList 
+          songName={songName} 
+          setSongName={setSongName}/>
         </>
     )
 }
